@@ -1,0 +1,11 @@
+.card {
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+
+    .buttons-container {
+        gap: 3%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
