@@ -15,7 +15,7 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
         if(username === 'admin' && password === 'admin') {
             return of(new HttpResponse({
                 status: 200,
-                body: {token: 'fake-jwt-token'}
+                body: {token: 'fake-jwt-token', isAdmin: true}
             })).pipe(delay(networkDelay))
         }
 
