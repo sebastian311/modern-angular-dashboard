@@ -37,11 +37,14 @@ export const AuthStore = signalStore(
                         throw err;
                     }
                 });
-            }
+            },
             // TODO: Create register later, at some point
             // registerUser(user: string, pass: string) {
             //     //
             // }
+            isUserLoggedIn(): boolean {
+                return !!store.token();
+            }
         }
     })
 );
