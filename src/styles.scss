@@ -36,3 +36,68 @@ body {
   height: 100%;
 }
 /* You can add global styles to this file, and also import other style files */
+/* ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+section + section {
+  margin-top: 2rem;
+}
+
+button:not(.mat-mdc-button-base) {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.05s ease;
+}
+
+button:not(.mat-mdc-button-base):hover {
+  background: #1d4ed8;
+}
+
+button:not(.mat-mdc-button-base):active {
+  transform: scale(0.98);
+}
