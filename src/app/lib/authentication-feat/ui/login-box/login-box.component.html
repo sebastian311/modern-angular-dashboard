@@ -1,22 +1,26 @@
 <mat-card class="card" appearance="outlined">
-    <mat-card-header>
-        <mat-card-title>
-            LOGIN
-        </mat-card-title>
-    </mat-card-header>
-  
+  <mat-card-header>
+    <mat-card-title> LOGIN </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput type="text">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" />
     </mat-form-field>
+    
     <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
     </mat-form-field>
 
     <mat-card-actions class="buttons-container">
-        <button matButton>Login</button>
-        <button matButton disabled>Register</button>
-        <sub>The register functionality is <strong>NOT</strong> yet implemented. Please use DEMO credentials `admin:admin` to access the application.</sub>
+      <button matButton type="submit">Login</button>
+      <button matButton disabled>Register</button>
+      <!-- TODO: Implement a better way to display Error messages -->
+      <sub
+        >The register functionality is <strong>NOT</strong> yet implemented. Please use DEMO
+        credentials `admin:admin` to access the application.</sub
+      >
     </mat-card-actions>
+  </form>
 </mat-card>

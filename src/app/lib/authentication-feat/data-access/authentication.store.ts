@@ -4,6 +4,7 @@ import { AuthenticationApiService } from './authentication-api.service';
 import { AuthState } from './models/auth-state.model';
 import { take, tap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 const initialState: AuthState = {
     token: '',
@@ -18,6 +19,7 @@ export const AuthStore = signalStore(
 
     withMethods((store) => {
         const authService = inject(AuthenticationApiService);
+        const router = inject(Router);
 
         return {
             loginUser(user: string, pass: string): void {
@@ -26,6 +28,9 @@ export const AuthStore = signalStore(
                     tap(() => patchState(store, { isLoading: true }))
                 ).subscribe({
                     next: (res: { token: string, isAdmin: boolean }) => {
+                        sessionStorage.setItem('authToken', res.token);
+                        router.navigate(['/']); // re-route to home
+
                         patchState(store, {
                             token: res.token,
                             isAdmin: res.isAdmin,
@@ -43,7 +48,7 @@ export const AuthStore = signalStore(
             //     //
             // }
             isUserLoggedIn(): boolean {
-                return !!store.token();
+                return !!store.token() || !!sessionStorage.getItem('authToken');
             }
         }
     })

@@ -7,5 +7,19 @@
         gap: 3%;
         flex-wrap: wrap;
         justify-content: center;
+
+        sub {
+            color: #554545;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .error {
+        color: red;
+        font-weight: 900;
     }
 }
