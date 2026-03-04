@@ -1,0 +1,7 @@
+import { City } from "../../../../data-access/shared-models/city.model";
+
+export interface DashboardState {
+    cities: City[]
+    selectedCity: string;
+    isLoading: boolean;
+}
