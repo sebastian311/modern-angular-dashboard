@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardService } from '../../data-access/dashboard.service';
 import { DashboardStore } from '../../data-access/dashboard.store';
@@ -13,7 +13,7 @@ import { City } from '../../../../data-access/shared-models/city.model';
 })
 export class DashboardShellComponent implements OnInit{
   private dashboardStore = inject(DashboardStore);
-  private cities = signal<City[]>;
+  cities = this.dashboardStore.cities;
   
   ngOnInit(): void {
     this.dashboardStore.fetchAllCities();
