@@ -13,6 +13,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class DashboardShellComponent implements OnInit{
   private dashboardStore = inject(DashboardStore);
+  isLoading = this.dashboardStore.isLoading;
   cities = this.dashboardStore.cities;
   
   ngOnInit(): void {

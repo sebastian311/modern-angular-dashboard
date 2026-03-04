@@ -20,8 +20,9 @@ export const DashboardStore = signalStore(
 
         return {
             fetchAllCities() {
+                patchState(store, { isLoading: true })
+                
                 dashboardService.getCities().pipe(
-                    tap(() => patchState(store, { isLoading: true })),
                     take(1),
                     map((res: GetCitiesResponseDto) => 
                         res.data?.map((city: string, index: number) => ({

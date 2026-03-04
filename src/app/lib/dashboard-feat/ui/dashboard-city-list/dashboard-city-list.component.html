@@ -1,7 +1,15 @@
-<mat-list>
-    @for (city of cityList(); track city.id) {
-        <mat-list-item>
-            <span matListItemTitle>{{ city.name }}</span>
-        </mat-list-item>
-    }
-</mat-list>
+@if(isLoading()) {
+  <div class="overlay">
+    <mat-spinner />
+  </div>
+}
+
+@else {
+    <mat-list>
+        @for (city of cityList(); track city.id) {
+            <mat-list-item>
+                <span matListItemTitle>{{ city.name }}</span>
+            </mat-list-item>
+        }
+    </mat-list>
+}

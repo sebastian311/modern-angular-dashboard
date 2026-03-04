@@ -1,6 +1,6 @@
   <mat-sidenav-container class="shell-container">
     <mat-sidenav mode="side" opened>
-        <app-dashboard-city-list [cityList]="cities()" />
+        <app-dashboard-city-list [cityList]="cities()" [isLoading]="isLoading()" />
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet />
