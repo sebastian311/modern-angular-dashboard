@@ -6,6 +6,13 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+// Global Shell styling
+@include mat.sidenav-overrides((
+  container-background-color: #2563eb,
+  container-text-color: white,
+));
+//
+
 html {
   height: 100%;
   @include mat.theme((
