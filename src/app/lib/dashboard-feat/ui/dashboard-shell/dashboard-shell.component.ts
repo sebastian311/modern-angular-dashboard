@@ -3,10 +3,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardService } from '../../data-access/dashboard.service';
 import { DashboardStore } from '../../data-access/dashboard.store';
 import { DashboardCityListComponent } from '../dashboard-city-list/dashboard-city-list.component';
-import { City } from '../../../../data-access/shared-models/city.model';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-dashboard-shell.component',
-  imports: [MatSidenavModule, DashboardCityListComponent],
+  imports: [MatSidenavModule, DashboardCityListComponent, RouterOutlet],
   templateUrl: './dashboard-shell.component.html',
   styleUrl: './dashboard-shell.component.scss',
   providers: [DashboardService, DashboardStore]
