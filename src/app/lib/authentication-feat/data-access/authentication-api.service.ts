@@ -18,4 +18,7 @@ export class AuthenticationApiService {
             { username, password }
         );
     }
+    logout(): Observable<{message: string}> {
+        return this.http.post<{message: string}>(`${apiUrl}/logout`, {});
+    }
 }

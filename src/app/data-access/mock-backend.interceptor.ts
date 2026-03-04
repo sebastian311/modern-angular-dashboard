@@ -7,7 +7,7 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
     const networkDelay = 750;
 
     // LOGIN ENDPOINT
-    if( url.endsWith('/login') && method === 'POST') {
+    if(url.endsWith('/login') && method === 'POST') {
         const credentials = body as { username?: string; password?: string } | null;
         const username = credentials?.username;
         const password = credentials?.password;
@@ -23,6 +23,15 @@ export const mockBackendInterceptor: HttpInterceptorFn = (req, next) => {
             status: 401,
             statusText: 'Unauthorized',
             error: { message: 'Invalid username or password' }
+        })).pipe(delay(networkDelay));
+    }
+
+    if(url.endsWith('/logout') && method === 'POST') {
+        sessionStorage.removeItem("token");
+
+        return of(new HttpResponse({
+            status: 200,
+            body: {message: "Successfully logged out"}
         })).pipe(delay(networkDelay));
     }
 

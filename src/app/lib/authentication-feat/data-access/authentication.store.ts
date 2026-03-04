@@ -28,7 +28,7 @@ export const AuthStore = signalStore(
                     tap(() => patchState(store, { isLoading: true }))
                 ).subscribe({
                     next: (res: { token: string, isAdmin: boolean }) => {
-                        sessionStorage.setItem('authToken', res.token);
+                        sessionStorage.setItem('token', res.token);
                         router.navigate(['/']); // re-route to home
 
                         patchState(store, {
@@ -48,7 +48,26 @@ export const AuthStore = signalStore(
             //     //
             // }
             isUserLoggedIn(): boolean {
-                return !!store.token() || !!sessionStorage.getItem('authToken');
+                return !!store.token() || !!sessionStorage.getItem('token');
+            },
+            logout(): void {
+                authService.logout().pipe(
+                    take(1),
+                    tap(() => patchState(store, { isLoading: true }))
+                ).subscribe({
+                    next: (res: {message: string}) => {
+                        console.log(res.message);
+
+                        patchState(store, {
+                            token: '',
+                            isAdmin: false,
+                            isLoading: false
+                        })
+                    },
+                    error: () => {
+                        console.error("An application error has occured on LOGOUT.")
+                    }
+                });
             }
         }
     })
