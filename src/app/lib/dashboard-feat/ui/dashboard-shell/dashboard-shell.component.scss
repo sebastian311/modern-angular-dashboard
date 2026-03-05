@@ -2,10 +2,35 @@
     .shell-container {
         width: 100vw;
         height: 100vh;
+
+        mat-sidenav {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .title {
+                text-align: center;
+            }
+
+            app-dashboard-city-list {
+                flex: 1 1 auto;
+                min-height: 0;
+            }
+
+            app-user-profile {
+                margin-top: 0;
+            }
+        }
     
         mat-sidenav .mat-drawer-inner-container{
-            overflow: hidden !important;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            height: 100%;
+            padding: 1rem;
         }
+
         mat-sidenav-content {
             padding: 1rem;
         }

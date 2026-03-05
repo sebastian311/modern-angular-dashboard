@@ -1,10 +1,14 @@
   <mat-sidenav-container class="shell-container">
     <mat-sidenav mode="side" opened>
+        <h2 class="title">CityOPS-Dashboard</h2>
+
         <app-dashboard-city-list 
           [cityList]="cities()" 
           [isLoading]="isLoading()"
           (onSelectedCity)="setSelectedCity($event)"
         />
+
+        <app-user-profile />
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet />
