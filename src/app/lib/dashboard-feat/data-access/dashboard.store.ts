@@ -1,10 +1,10 @@
-import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
-import { DashboardState } from "./models/dashboard-state.model";
 import { inject } from "@angular/core";
-import { DashboardService } from "./dashboard.service";
-import { map, take, tap } from "rxjs";
-import { GetCitiesResponseDto } from "./models/dashboard-cities-res.model";
+import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
+import { map, take } from "rxjs";
 import { City } from "../../../data-access/shared-models/city.model";
+import { DashboardService } from "./dashboard.service";
+import { GetCitiesResponseDto } from "./models/dashboard-cities-res.model";
+import { DashboardState } from "./models/dashboard-state.model";
 
 const initialState: DashboardState = {
     cities: [],
@@ -35,8 +35,10 @@ export const DashboardStore = signalStore(
                     )
                 ).subscribe({
                     next: (cities: City[]) => {
+                        const smallerCitiesArray = cities.slice(0, 50); // TODO: Implement some sort of pagination (UI Optimization)
+
                         patchState(store, {
-                            cities,
+                            cities: smallerCitiesArray,
                             selectedCity: null,
                             isLoading: false,
                         })
