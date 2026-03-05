@@ -1,3 +1,16 @@
-:host::ng-deep .mdc-circular-progress__indeterminate-circle-graphic {
-    stroke: indianred !important;
+:host::ng-deep {
+    .mdc-circular-progress__indeterminate-circle-graphic {
+        stroke: indianred !important;
+    }
+
+    .city-wrapper span span {
+        color: white !important;
+    }
+}
+
+.mat-list {
+    padding: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 100vh;
 }

@@ -1,4 +1,10 @@
-.shell-container {
-    width: 100vw;
-    height: 100vh;
+:host::ng-deep {
+    .shell-container {
+        width: 100vw;
+        height: 100vh;
+    
+        mat-sidenav .mat-drawer-inner-container{
+            overflow: hidden !important;
+        }
+    }
 }

@@ -5,10 +5,10 @@
 }
 
 @else {
-    <mat-list>
+    <mat-list class="mat-list">
         @for (city of cityList(); track city.id) {
             <mat-list-item>
-                <span matListItemTitle>{{ city.name }}</span>
+                <button mat-list-item class="city-wrapper">{{ city.name }}</button>
             </mat-list-item>
         }
     </mat-list>
