@@ -6,5 +6,8 @@
         mat-sidenav .mat-drawer-inner-container{
             overflow: hidden !important;
         }
+        mat-sidenav-content {
+            padding: 1rem;
+        }
     }
 }
