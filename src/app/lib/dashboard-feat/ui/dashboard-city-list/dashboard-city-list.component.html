@@ -8,7 +8,7 @@
     <mat-list class="mat-list">
         @for (city of cityList(); track city.id) {
             <mat-list-item>
-                <button mat-list-item class="city-wrapper">{{ city.name }}</button>
+                <button mat-list-item class="city-wrapper" (click)="onClick(city.id)">{{ city.name }}</button>
             </mat-list-item>
         }
     </mat-list>

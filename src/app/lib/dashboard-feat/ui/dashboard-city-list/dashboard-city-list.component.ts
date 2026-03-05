@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { City } from '../../../../data-access/shared-models/city.model';
@@ -12,4 +12,9 @@ import { City } from '../../../../data-access/shared-models/city.model';
 export class DashboardCityListComponent {
   cityList = input.required<City[]>();
   isLoading = input.required<boolean>();
+  onSelectedCity = output<number>();
+
+  onClick(cityId: number): void {
+    this.onSelectedCity.emit(cityId);
+  }
 }

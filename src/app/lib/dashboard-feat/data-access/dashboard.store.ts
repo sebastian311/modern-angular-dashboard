@@ -47,6 +47,9 @@ export const DashboardStore = signalStore(
                         throw err;
                     }
                 });
+            },
+            setSelectedCity(cityId: number): void {
+                patchState(store, { selectedCity: cityId });
             }
         }
     })

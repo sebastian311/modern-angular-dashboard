@@ -1,6 +1,10 @@
   <mat-sidenav-container class="shell-container">
     <mat-sidenav mode="side" opened>
-        <app-dashboard-city-list [cityList]="cities()" [isLoading]="isLoading()" />
+        <app-dashboard-city-list 
+          [cityList]="cities()" 
+          [isLoading]="isLoading()"
+          (onSelectedCity)="setSelectedCity($event)"
+        />
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet />

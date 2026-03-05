@@ -19,4 +19,8 @@ export class DashboardShellComponent implements OnInit{
   ngOnInit(): void {
     this.dashboardStore.fetchAllCities();
   }
+
+  setSelectedCity(cityId: number): void {
+    this.dashboardStore.setSelectedCity(cityId);
+  }
 }
