@@ -5,7 +5,7 @@
     @else {
         <mat-icon>account_circle</mat-icon>
     }
-    <span>{{userProfile().username || 'User Settings'}}</span>
+    <span>{{userProfile().username || sessionUsername()}}</span>
 </div>
 
 <mat-menu #menu="matMenu" class="mat-menu">

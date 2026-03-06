@@ -43,6 +43,7 @@ export const AuthStore = signalStore(
           .subscribe({
             next: (res: { token: string; isAdmin: boolean }) => {
               sessionStorage.setItem('token', res.token);
+              sessionStorage.setItem('username', user); // TODO: Come up with a better way when real BE exists
               router.navigate(['/']); // re-route to home
 
               patchState(store, {
