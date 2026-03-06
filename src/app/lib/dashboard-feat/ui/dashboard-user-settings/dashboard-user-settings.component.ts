@@ -12,6 +12,7 @@ import { UserProfile } from '../../../../data-access/shared-models/user-profile.
 })
 export class DashboardUserSettingsComponent {
   userProfile = input.required<UserProfile>();
+  isExpanded = input.required<boolean>();
   onLogout = output<void>();
   sessionUsername = signal<string>(sessionStorage.getItem("username") || "");
   openDropdown = signal<boolean>(false);

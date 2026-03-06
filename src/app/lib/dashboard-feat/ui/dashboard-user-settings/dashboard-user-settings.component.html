@@ -1,14 +1,32 @@
-<div [matMenuTriggerFor]="menu" class="profile-container" tabindex="0" (click)="openDropdown.update(v => !v)">
-    @if(userProfile().avatar) {
-        <!-- TODO: Implement register, and modify accordingly -->
+TODO: Tweak CSS and add tooltip
+@if (isExpanded()) {
+  <div
+    [matMenuTriggerFor]="menu"
+    class="profile-container"
+    tabindex="0"
+    (click)="openDropdown.update(v => !v)"
+  >
+    @if (userProfile().avatar) {
+      <!-- TODO: Implement register, and modify accordingly -->
+    } @else {
+      <mat-icon>account_circle</mat-icon>
     }
-    @else {
-        <mat-icon>account_circle</mat-icon>
-    }
-    <span>{{userProfile().username || sessionUsername()}}</span>
-</div>
+    <span>{{ userProfile().username || sessionUsername() }}</span>
+  </div>
+} @else {
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    tabindex="0"
+    (click)="openDropdown.update(v => !v)"
+    class="icon-btn"
+    matTooltip="Settings"
+  >
+    <mat-icon>settings</mat-icon>
+  </button>
+}
 
 <mat-menu #menu="matMenu" class="mat-menu">
-    <span mat-menu-item disabled>Settings</span>
-    <span mat-menu-item (click)="emitLogout()">Logout</span>
+  <span mat-menu-item disabled>Settings</span>
+  <span mat-menu-item (click)="emitLogout()">Logout</span>
 </mat-menu>

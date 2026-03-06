@@ -1,16 +1,41 @@
   <mat-sidenav-container class="shell-container">
-    <mat-sidenav mode="side" opened>
-        <h2 class="title">CityOPS-Dashboard</h2>
+    <mat-sidenav 
+      mode="side" 
+      [opened]="true" 
+      [style.width.px]="isExpanded() ? 280 : 70"
+      class="navbar"
+    >
+      @if(isExpanded()) {
+        <div class="sidebar-content">
+          <div class="title-container">
+            <h2>CityOPS-Dashboard</h2>
+            <button mat-icon-button (click)="toggleSidebar()" class="icon-btn" [matTooltip]="isExpanded() ? 'Collapse' : 'Expand'">
+              <mat-icon>{{ isExpanded() ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+            </button>
+          </div>
 
-        <app-dashboard-city-list 
-          [cityList]="cities()" 
-          [isLoading]="isLoading()"
-          (onSelectedCity)="setSelectedCity($event)"
-        />
+          <app-dashboard-city-list 
+            [cityList]="cities()" 
+            [isLoading]="isLoading()"
+            (onSelectedCity)="setSelectedCity($event)"
+          />
 
-        <app-user-profile [userProfile]="userProfile()" (onLogout)="logoutUser()" />
+          <mat-divider />
+
+          <app-user-profile [isExpanded]="isExpanded()" [userProfile]="userProfile()" (onLogout)="logoutUser()" />
+        </div>
+      }
+      @else {
+        <div class="icon-bar">
+          <button mat-icon-button (click)="toggleSidebar()" class="icon-btn" [matTooltip]="isExpanded() ? 'Collapse' : 'Expand'">
+            <mat-icon>{{ isExpanded() ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+          </button>
+          <app-user-profile [isExpanded]="isExpanded()" [userProfile]="userProfile()" (onLogout)="logoutUser()" />
+        </div>
+      }
     </mat-sidenav>
-    <mat-sidenav-content>
+    
+    <mat-sidenav-content [style.marginLeft.rem]="isExpanded() ? 18 : 4">
       <router-outlet />
     </mat-sidenav-content>
   </mat-sidenav-container>
