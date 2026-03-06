@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { UserProfile } from '../../../../data-access/shared-models/user-profile.model';
 
@@ -10,5 +10,5 @@ import { UserProfile } from '../../../../data-access/shared-models/user-profile.
 })
 export class DashboardUserSettingsComponent {
   userProfile = input.required<UserProfile>();
-  
+  openDropdown = signal<boolean>(false);
 }
