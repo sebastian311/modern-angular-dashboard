@@ -27,4 +27,8 @@ export class DashboardShellComponent implements OnInit{
   setSelectedCity(cityId: number): void {
     this.dashboardStore.setSelectedCity(cityId);
   }
+
+  logoutUser(): void {
+    this.authStore.logout();
+  }
 }

@@ -74,14 +74,15 @@ export const AuthStore = signalStore(
             tap(() => patchState(store, { isLoading: true })),
           )
           .subscribe({
-            next: (res: { message: string }) => {
-              console.log(res.message);
-
+            next: (_res: { message: string }) => {
               patchState(store, {
                 token: '',
                 isAdmin: false,
                 isLoading: false,
               });
+
+              sessionStorage.removeItem('token');
+              router.navigate(['/login']);
             },
             error: () => {
               console.error('An application error has occured on LOGOUT.');

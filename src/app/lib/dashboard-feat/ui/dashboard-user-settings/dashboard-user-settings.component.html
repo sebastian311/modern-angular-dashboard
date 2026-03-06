@@ -1,4 +1,4 @@
-<div class="profile-container" tabindex="0" (click)="openDropdown.update(v => !v)">
+<div [matMenuTriggerFor]="menu" class="profile-container" tabindex="0" (click)="openDropdown.update(v => !v)">
     @if(userProfile().avatar) {
         <!-- TODO: Implement register, and modify accordingly -->
     }
@@ -7,3 +7,8 @@
     }
     <span>{{userProfile().username || 'User Settings'}}</span>
 </div>
+
+<mat-menu #menu="matMenu" class="mat-menu">
+    <span mat-menu-item disabled>Settings</span>
+    <span mat-menu-item (click)="emitLogout()">Logout</span>
+</mat-menu>
