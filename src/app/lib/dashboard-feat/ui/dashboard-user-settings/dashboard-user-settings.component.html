@@ -1,3 +1,9 @@
-<div class="profile-container">
-    asd
+<div class="profile-container" tabindex="0">
+    @if(userProfile().avatar) {
+        <!-- TODO: Implement register, and modify accordingly -->
+    }
+    @else {
+        <mat-icon>account_circle</mat-icon>
+    }
+    <span>{{userProfile().username || 'User Settings'}}</span>
 </div>

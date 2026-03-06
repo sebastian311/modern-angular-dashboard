@@ -8,7 +8,7 @@
           (onSelectedCity)="setSelectedCity($event)"
         />
 
-        <app-user-profile />
+        <app-user-profile [userProfile]="userProfile()" />
     </mat-sidenav>
     <mat-sidenav-content>
       <router-outlet />

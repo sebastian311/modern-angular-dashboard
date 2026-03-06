@@ -1,0 +1,23 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 1rem;
+
+    cursor: pointer;
+    user-select: none;
+
+    span {
+        padding: 3px;
+    }
+}
+
+.profile-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.profile-container:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
