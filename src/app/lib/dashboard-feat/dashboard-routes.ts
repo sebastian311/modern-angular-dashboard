@@ -10,6 +10,11 @@ export const DASHBOARD_ROUTES: Routes = [
             {
                 path: 'home',
                 component: HomeShellComponent
+            },
+            {
+                path: 'profile',
+                loadComponent: () => import('../user-profile-feat/ui/user-profile-shell/user-profile-shell.component')
+                    .then(m => m.UserProfileShellComponent)
             }
         ]
     }

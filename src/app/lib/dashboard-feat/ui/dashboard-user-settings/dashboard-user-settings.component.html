@@ -27,6 +27,6 @@
 }
 
 <mat-menu #menu="matMenu" class="mat-menu">
-  <span mat-menu-item disabled>Settings</span>
+  <span mat-menu-item (click)="goToProfile()">Settings</span>
   <span mat-menu-item (click)="emitLogout()">Logout</span>
 </mat-menu>
