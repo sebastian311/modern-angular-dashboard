@@ -2,50 +2,50 @@
   <div class="profile-h">
     <h2>Essentials</h2>
     <div class="icons-group">
-        @if (editMode()) {
-          <mat-icon (click)="editMode.set(false)" title="Lock profile">lock_outline</mat-icon>
-        } @else {
-          <mat-icon (click)="editMode.set(true)" title="Unlock to edit">lock_open</mat-icon>
-        }
-        <mat-icon (click)="goBack()" title="Go back">arrow_back</mat-icon>
+      @if (editMode()) {
+        <mat-icon (click)="editMode.set(false)" title="Lock profile">lock_outline</mat-icon>
+      } @else {
+        <mat-icon (click)="editMode.set(true)" title="Unlock to edit">lock_open</mat-icon>
+      }
+      <mat-icon (click)="goBack()" title="Go back">arrow_back</mat-icon>
     </div>
   </div>
 
   @if (editMode()) {
-    <form class="edit-profile">
+    <form class="edit-profile" [formGroup]="userProfileFg" (ngSubmit)="saveModifiedData()">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input matInput />
+        <input matInput formControlName="nameControl" />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput />
+        <input matInput formControlName="emailControl" />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Age</mat-label>
-        <input matInput />
+        <input matInput type="number" formControlName="ageControl" />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Favorite city</mat-label>
-        <input matInput />
+        <input matInput formControlName="favCityControl" />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Gender</mat-label>
-        <mat-select>
-          <mat-option value="male">Male</mat-option>
-          <mat-option value="female">Female</mat-option>
-          <mat-option value="other">Other</mat-option>
+        <mat-select formControlName="genderControl">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Interests & Hobbies</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput formControlName="interestsControl"></textarea>
       </mat-form-field>
+      <button matButton type="submit" [disabled]="userProfileFg.invalid">Save</button>
     </form>
   } @else {
     <div class="profile-info">
