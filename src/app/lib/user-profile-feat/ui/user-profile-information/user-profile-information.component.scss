@@ -1,0 +1,85 @@
+.profile-container {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        box-shadow: 
+            0 4px 8px rgba(0, 0, 0, 0.08),
+            0 8px 16px rgba(0, 0, 0, 0.12),
+            0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-h {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+    }
+
+    .icons-group {
+        display: flex;
+        gap: 12px;
+
+        mat-icon {
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+
+            &:first-child {
+                color: #1976d2;
+                background: rgba(25, 118, 210, 0.08);
+
+                &:hover {
+                    background: rgba(25, 118, 210, 0.12);
+                    color: #1565c0;
+                    transform: scale(1.1);
+                    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+
+            &:last-child {
+                color: #d32f2f;
+                background: rgba(211, 47, 47, 0.08);
+
+                &:hover {
+                    background: rgba(211, 47, 47, 0.12);
+                    color: #c62828;
+                    transform: scale(1.1);
+                    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+                }
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+        }
+    }
+}
