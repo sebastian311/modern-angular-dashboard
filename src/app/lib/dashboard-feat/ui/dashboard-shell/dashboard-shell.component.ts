@@ -32,6 +32,7 @@ export class DashboardShellComponent implements OnInit {
 
   isLoading = this.dashboardStore.isLoading;
   cities = this.dashboardStore.filteredCities;
+  selectedCity = this.dashboardStore.selectedCity;
   userProfile = this.authStore.userProfile;
   isExpanded = signal<boolean>(false);
 
