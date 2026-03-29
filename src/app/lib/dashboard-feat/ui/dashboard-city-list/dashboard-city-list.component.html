@@ -5,11 +5,17 @@
 }
 
 @else {
-    <mat-list class="mat-list">
-        @for (city of cityList(); track city.id) {
-            <mat-list-item>
-                <button mat-list-item class="city-wrapper" (click)="onClick(city.id)">{{ city.name }}</button>
-            </mat-list-item>
-        }
-    </mat-list>
+    <div class="mat-list-container">
+        <mat-form-field>
+          <mat-label>Search a city...</mat-label>
+          <input matInput type="text" #searchedQuery (input)="onSearchQuery.emit(searchedQuery.value)" />
+        </mat-form-field>
+        <mat-list class="mat-list">
+            @for (city of cityList(); track city.id) {
+                <mat-list-item>
+                    <button mat-list-item class="city-wrapper" (click)="onClick(city.id)">{{ city.name }}</button>
+                </mat-list-item>
+            }
+        </mat-list>
+    </div>
 }

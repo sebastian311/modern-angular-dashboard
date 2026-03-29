@@ -7,7 +7,8 @@ import { GetCitiesResponseDto } from "./models/dashboard-cities-res.model";
 import { DashboardState } from "./models/dashboard-state.model";
 
 const initialState: DashboardState = {
-    cities: [],
+    filteredCities: [],
+    allCities: [],
     selectedCity: null,
     isLoading: false
 }
@@ -38,7 +39,8 @@ export const DashboardStore = signalStore(
                         const smallerCitiesArray = cities.slice(0, 50); // TODO: Implement some sort of pagination (UI Optimization)
 
                         patchState(store, {
-                            cities: smallerCitiesArray,
+                            filteredCities: smallerCitiesArray,
+                            allCities: smallerCitiesArray,
                             selectedCity: null,
                             isLoading: false,
                         })
@@ -50,6 +52,12 @@ export const DashboardStore = signalStore(
             },
             setSelectedCity(cityId: number): void {
                 patchState(store, { selectedCity: cityId });
+            },
+            filterCitiesBasedOnSearchTerm(searchTerm: string): void {
+                const cityList = store.allCities();
+                const filteredCities = cityList.filter((city: City) => city.name.startsWith(searchTerm));
+                
+                patchState(store, { filteredCities });
             }
         }
     })

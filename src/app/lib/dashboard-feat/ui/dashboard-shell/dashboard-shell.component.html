@@ -18,6 +18,7 @@
             [cityList]="cities()" 
             [isLoading]="isLoading()"
             (onSelectedCity)="setSelectedCity($event)"
+            (onSearchQuery)="searchQueryInList($event)"
           />
 
           <mat-divider />

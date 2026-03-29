@@ -31,7 +31,7 @@ export class DashboardShellComponent implements OnInit {
   private authStore = inject(AuthStore);
 
   isLoading = this.dashboardStore.isLoading;
-  cities = this.dashboardStore.cities;
+  cities = this.dashboardStore.filteredCities;
   userProfile = this.authStore.userProfile;
   isExpanded = signal<boolean>(false);
 
@@ -43,9 +43,8 @@ export class DashboardShellComponent implements OnInit {
     this.isExpanded.update((v) => !v);
   }
 
-  openSettings(): void {
-    // Trigger the settings dropdown in user-profile component
-    // You can implement this however you want
+  searchQueryInList(term: string) {
+    this.dashboardStore.filterCitiesBasedOnSearchTerm(term);
   }
 
   setSelectedCity(cityId: number): void {
