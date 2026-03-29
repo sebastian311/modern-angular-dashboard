@@ -44,6 +44,6 @@ export class UserProfileInformationComponent {
   }
 
   goBack(): void {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard/home']);
   }
 }
