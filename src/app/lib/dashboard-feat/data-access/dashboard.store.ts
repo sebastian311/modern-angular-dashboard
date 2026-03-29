@@ -55,7 +55,7 @@ export const DashboardStore = signalStore(
             },
             filterCitiesBasedOnSearchTerm(searchTerm: string): void {
                 const cityList = store.allCities();
-                const filteredCities = cityList.filter((city: City) => city.name.startsWith(searchTerm));
+                const filteredCities = cityList.filter((city: City) => city.name.trim().toLowerCase().startsWith(searchTerm.trim().toLowerCase()));
                 
                 patchState(store, { filteredCities });
             }
